@@ -29,7 +29,6 @@ import javax.servlet.http.HttpServletRequest;
 @Configuration
 public class OAuth2FilterConfig {
 
-    @Autowired
     @Bean
     FilterRegistrationBean<BackwardsCompatibleTokenEndpointAuthenticationFilter> tokenEndpointAuthenticationFilter(
             PasswordGrantAuthenticationManager passwordGrantAuthenticationManager,
@@ -51,7 +50,6 @@ public class OAuth2FilterConfig {
         return bean;
     }
 
-    @Autowired
     @Bean
     public PkceEnhancedAuthorizationCodeTokenGranter pkceEnhancedAuthorizationCodeTokenGranter(@Qualifier("oauth2TokenGranter") CompositeTokenGranter compositeTokenGranter,
             @Qualifier("tokenServices") AuthorizationServerTokenServices tokenServices,
@@ -66,7 +64,6 @@ public class OAuth2FilterConfig {
         return tokenGranter;
     }
 
-    @Autowired
     @Bean
     public UserTokenGranter userTokenGranter(@Qualifier("oauth2TokenGranter") CompositeTokenGranter compositeTokenGranter,
             @Qualifier("tokenServices") AuthorizationServerTokenServices tokenServices,
@@ -79,7 +76,6 @@ public class OAuth2FilterConfig {
         return tokenGranter;
     }
 
-    @Autowired
     @Bean
     public JwtTokenGranter jwtTokenGranter(@Qualifier("oauth2TokenGranter") CompositeTokenGranter compositeTokenGranter,
             @Qualifier("tokenServices") AuthorizationServerTokenServices tokenServices,
